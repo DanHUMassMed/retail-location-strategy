@@ -34,16 +34,16 @@ from .sub_agents.intake_agent.agent import intake_agent
 from .sub_agents.market_research.agent import market_research_agent
 from .sub_agents.competitor_analysis.agent import competitor_analysis_agent
 from .sub_agents.gap_analysis.agent import gap_analysis_agent
-# from .sub_agents.strategy_advisor.agent import strategy_advisor_agent
+from .sub_agents.strategy_advisor.agent import strategy_advisor_agent
+from .sub_agents.report_generator.agent import report_generation_pipeline
 # from .sub_agents.infographic_generator.agent import infographic_generator_agent
-# from .sub_agents.report_generator.agent import report_generator_agent
 
 from .config import config
-from .trace import instrument_adk_with_phoenix
+#from .trace import instrument_adk_with_phoenix
 from .prompts import retail_location_strategy_instruction
 
 # Run Phoenix UI: phoenix serve
-_ = instrument_adk_with_phoenix()
+#_ = instrument_adk_with_phoenix()
 
 # location_strategy_pipeline
 location_strategy_pipeline = SequentialAgent(
@@ -69,9 +69,9 @@ including JSON report, HTML report, and infographic image.
         market_research_agent,      # Part 1: Market research with search
         competitor_analysis_agent,   # Part 2A: Competitor mapping with Maps
         gap_analysis_agent,         # Part 2B: Gap analysis with code exec
-        # strategy_advisor_agent,     # Part 3: Strategy synthesis
-        # report_generator_agent,     # Part 4: HTML report generation
-        # infographic_generator_agent,  # Part 5: Infographic generation
+        strategy_advisor_agent,     # Part 3: Strategy synthesis
+        report_generation_pipeline,     # Part 4: HTML report generation
+        infographic_generator_agent,  # Part 5: Infographic generation
     ],
 )
 

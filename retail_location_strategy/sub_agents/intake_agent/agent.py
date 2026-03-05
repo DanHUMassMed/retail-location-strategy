@@ -6,14 +6,11 @@ for use by subsequent agents in the pipeline.
 """
 
 from typing import Optional
-
 from google.adk.agents import LlmAgent
-from google.adk.agents.callback_context import CallbackContext
-from google.genai import types
 from pydantic import BaseModel, Field
 
 from .prompt import intake_instruction
-from .callbacks import after_intake
+from .callbacks import before_intake, after_intake
 
 from ...config import config
 
@@ -41,5 +38,6 @@ intake_agent = LlmAgent(
     instruction=intake_instruction(),
     output_schema=UserRequest,
     output_key="parsed_request",
+    before_agent_callback=before_intake,
     after_agent_callback=after_intake,
 )

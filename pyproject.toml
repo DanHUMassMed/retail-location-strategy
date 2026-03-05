@@ -6,6 +6,7 @@ requires-python = ">=3.13"
 readme = "README.md"
 
 dependencies = [
+"ag-ui-adk>=0.5.0",
 "aiosqlite>=0.22.1",
 "arize-phoenix>=12.25.1",
 "chromadb>=0.4.21",

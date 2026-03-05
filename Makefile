@@ -23,6 +23,3 @@ lint: check-venv
 run: check-venv
 	uv run adk web .
 
-run1: check-venv
-	@test -n "$(PDF)" || (echo "❌ PDF is required: make run1 PDF=voting_minutes_2025-04-17.pdf" && exit 1)
-	$(PYTHON) -m app.cli --file ../data/voting_minutes_pdfs/$(PDF) --output ../data/licenses.json
