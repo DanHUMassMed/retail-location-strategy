@@ -7,19 +7,19 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from sub_agent_harness.utils import run_agent_test
-from retail_location_strategy.sub_agents.gap_analysis.agent import gap_analysis_agent
+from retail_location_strategy.sub_agents.infographic_generator.agent import infographic_generator_agent
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-async def run_gap_analysis_test():
+async def run_infographic_generator_test():
     await run_agent_test(
         app_name="retail_location_strategy",
-        agent=gap_analysis_agent,
-        session_file_name="session1.json",
-        prompt="Please evaluate this location and generate gap_analysis.",
-        output_keys=["gap_analysis", "gap_analysis_code"]
+        agent=infographic_generator_agent,
+        session_file_name="session3.json",
+        prompt="Please evaluate this location and generate an infographic.",
+        output_keys=["infographic_result"]
     )
 
 if __name__ == "__main__":
-    asyncio.run(run_gap_analysis_test())
+    asyncio.run(run_infographic_generator_test())

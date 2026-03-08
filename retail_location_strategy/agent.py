@@ -36,11 +36,11 @@ from .sub_agents.competitor_analysis.agent import competitor_analysis_agent
 from .sub_agents.gap_analysis.agent import gap_analysis_agent
 from .sub_agents.strategy_advisor.agent import strategy_advisor_agent
 from .sub_agents.report_generator.agent import report_generation_pipeline
-# from .sub_agents.infographic_generator.agent import infographic_generator_agent
+from .sub_agents.infographic_generator.agent import infographic_generator_agent
 
 from .config import config
 #from .trace import instrument_adk_with_phoenix
-from .prompts import retail_location_strategy_instruction
+from .prompt import retail_location_strategy_instruction
 
 # Run Phoenix UI: phoenix serve
 #_ = instrument_adk_with_phoenix()
@@ -71,7 +71,7 @@ including JSON report, HTML report, and infographic image.
         gap_analysis_agent,         # Part 2B: Gap analysis with code exec
         strategy_advisor_agent,     # Part 3: Strategy synthesis
         report_generation_pipeline,     # Part 4: HTML report generation
-        infographic_generator_agent,  # Part 5: Infographic generation
+        #infographic_generator_agent,  # Part 5: Infographic generation
     ],
 )
 
